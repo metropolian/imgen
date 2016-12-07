@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>สร้างรูป</title>
+    <meta name="description" content="สร้างพื้น แบนเนอร์ แล้วแชร์เก๋รๆ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="author" content="Metropolian <metropolian@live.com>">
+    <meta property="fb:app_id" content="" />
+    <meta property="fb:admins" content="" />
+    <meta property="og:site_name" content="สร้างรูปเรารักในหลวง" />
+    <meta property="og:url" content="https://localhost" />
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="og.jpg" />
+    <meta property="og:description" content="สร้างพื้น แบนเนอร์ แล้วแชร์เก๋รๆ" />
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="styles/dest/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/dest/material.min.css">
+    <link rel="stylesheet" href="styles/dest/ripples.min.css">
+    <link rel="stylesheet" href="styles/dest/bootstrap.fix.min.css">
+
+    <link rel="stylesheet" href="styles/dest/carousel.min.css">
+    <link rel="stylesheet" href="styles/dest/modal.min.css">
+    <link rel="stylesheet" href="styles/dest/default.min.css">
+    <link rel="stylesheet" href="styles/font-awesome.min.css">
+
+    <script src='http://localhost:3000/browser-sync/browser-sync-client.js?v=2.18.2'></script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Banner Maker</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">#</a></li>
+            <li><a href="#"></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+     </nav>
+
+    <div class="navbar-fixed-padding">
+    </div>
+
+    <section class="container-fluid">
+        <div class="col-sm-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Parameters</h1>
+                </div>
+                <div class="panel-body">
+            <form class="form-horizontal" action="index.html" method="post">
+                <div class="form-group">
+                  <label for="font" class="col-sm-2 control-label">Font: </label>
+                  <div class="col-sm-10">
+                      <select class="form-control" id="txfont">
+                          <option>Arial</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="text" class="col-sm-2 control-label">Title:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtitle" placeholder="Your text">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="text" class="col-sm-12 text-left">Text:</label>
+                    <div class="col-sm-12">
+                        <textarea id="txtext" class="form-control" rows="10">Hello World!</textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="text" class="col-sm-2 control-label">Fore:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="fore">
+                    </div>
+                    <label for="text" class="col-sm-2 control-label">Back:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="fore">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="offset" class="col-sm-12 text-left">Font Size:</label>
+                    <div class="col-sm-12">
+                        <input id="fontsize" class="col-sm-12" type="range" min="30" max="150" value="70" tabindex="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="text-center">
+                        <a href="#" id="download" class="btn btn-success">Save File</a>
+                    </div>
+                </div>
+            </form>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="panel">
+                <canvas id="canvas" width="800" height="600"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        var txtitle = document.getElementById('txtitle')
+			, txtext = document.getElementById('txtext')
+            , fontsize = document.getElementById('fontsize')
+            , download = document.getElementById('download')
+            , canvas = document.getElementById('canvas')
+            , context = canvas.getContext('2d')
+            , render = function () {
+                var img = new Image();
+                img.onload = function () {
+                    context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+                    context.fillStyle = '#fff';
+                    context.font = 'normal ' + (+fontsize.value) + 'px noworry';
+                    //context.font = 'normal 70px noworry';
+
+                    var tx = txtext.value.replace('\n', '<br/>');
+                    context.fillText(txtext.value, (canvas.width / 2) - (context.measureText(txtext.value).width / 2), (canvas.height / 2));
+                };
+                img.src = 'images/bg.jpg';
+            }
+            , isFacebookApp = function () {
+                var ua = navigator.userAgent || navigator.vendor || window.opera;
+                return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+            };
+
+
+        render();
+        txtitle.onkeyup = render;
+        txtitle.onchange = render;
+		txtext.onkeyup = render;
+		txtext.onchange = render;
+        fontsize.oninput = render;
+        download.onclick = function (e) {
+            this.href = canvas.toDataURL();
+            this.download = 'we_love_something.png';
+        };
+    </script>
+
+</body>
+</html>

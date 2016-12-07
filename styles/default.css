@@ -1,0 +1,122 @@
+body {
+    position:relative;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    padding: 15px;
+    height: 60px;
+    /*margin-top: -60px;*/
+    background: #424242;
+}
+
+footer a {
+    color: #efe;
+}
+
+
+.panel, .modal-dialog {
+    background: rgba(255, 255, 255, 0.90);
+    color: #000;
+}
+
+.panel {
+    color: #000;
+}
+
+.panel input {
+    /*background: #fff;*/
+    color: #000;
+}
+
+.navbar-default {
+    background-color: #bdc3c7;
+}
+
+.navbar-primary {
+    background-color: #2979ff !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.navbar-secondary {
+    background-color: rgba(46, 204, 113, 0.9) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.navbar li > a:hover,
+.navbar li > a:focus {
+    background-color: rgba(46, 204, 113, 1);
+}
+
+
+
+h1,h2,h3,h4,h5,h6 {
+
+    /*font-family: 'rsubold';*/
+}
+
+p {
+    font-size: 1.2em;
+}
+
+.intro {
+    font-size: 1.4em;
+    margin: 80px auto;
+}
+
+
+
+
+.carousel { height: 100%;
+    padding: 0; margin: 0;
+}
+.carousel .item { background-size: cover !important; background-position: bottom !important; }
+
+.carousel-text .action {
+    position: absolute;
+    bottom: 60px;
+}
+
+.carousel-text {
+    color: #fff;
+    font-size: 1.5em;
+    text-shadow: 1px 1px #000;
+}
+
+
+.carousel-text h2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+
+section {
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+
+.features .icon-huge {
+    margin-top: 25px;
+    margin-left: 25px;
+    font-size: 3em;
+}
